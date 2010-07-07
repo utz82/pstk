@@ -1,0 +1,8 @@
+((author "W-D. Busch, N. Holm, K. Dickey")
+ (maintainer "Peter C. R. Lane")
+ (synopsis "PS/Tk: Portable Scheme interface to Tk")
+ (license "Public Domain")
+ (doc-from-wiki)
+ (category ui)
+ (needs posix)
+ (files "pstk.scm" "pstk.setup"))

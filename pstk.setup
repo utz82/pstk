@@ -1,0 +1,9 @@
+(compile -s -O3 -d1 "pstk.scm" -j pstk)
+(compile -c -O3 -d1 "pstk.scm" -unit pstk)
+(compile -s -O3 -d0 "pstk.import.scm")
+
+(install-extension
+ 'pstk
+ '("pstk.o" "pstk.so" "pstk.import.so")
+ '((version 1.0)
+   (static "pstk.o")))
