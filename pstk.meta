@@ -1,5 +1,5 @@
 ((author "W-D. Busch, N. Holm, K. Dickey")
- (maintainer "Peter C. R. Lane")
+ (maintainer "Peter Lane")
  (synopsis "PS/Tk: Portable Scheme interface to Tk")
  (license "Public Domain")
  (doc-from-wiki)
