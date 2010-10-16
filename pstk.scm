@@ -333,9 +333,7 @@
        (lambda (program)
          (call-with-values
            (lambda () 
-             (process (string-append "/bin/sh -c \"exec "
-                                     program
-                                     " 2>&1\"")))
+             (process program)) 
            (lambda (in out pid)
              (list in out)))))
 
