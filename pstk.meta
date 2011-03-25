@@ -4,4 +4,4 @@
  (license "Public Domain")
  (doc-from-wiki)
  (category ui)
- (files "pstk.scm" "pstk.setup"))
+ (files "pstk.setup" "pstk.meta" "pstk.scm"))
