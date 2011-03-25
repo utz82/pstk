@@ -5,4 +5,4 @@
  (doc-from-wiki)
  (category ui)
  (needs posix)
- (files "pstk.scm" "pstk.setup"))
+ (files "pstk.setup" "pstk.meta" "pstk.scm"))
