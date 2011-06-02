@@ -1,5 +1,0 @@
-(repo svn "http://anonymous@code.call-cc.org/svn/chicken-eggs/release/4/{egg-name}")
-(uri meta-file "http://anonymous@code.call-cc.org/svn/chicken-eggs/release/4/{egg-name}/tags/{egg-release}/{egg-name}.meta")
-(release "1.0")
-(release "1.1")
-(release "1.2")
