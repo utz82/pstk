@@ -155,7 +155,9 @@
     )
   (import scheme chicken posix)
 
-  (use posix)
+  (use posix
+       (only data-structures string-intersperse)
+       (only srfi-13 string-concatenate))
 
   (define *wish-program* "tclsh8.5")
   (define *wish-debug-input* #f)
@@ -247,10 +249,7 @@
      (ttk-widget-map '())
 
      (tk-init-string
-       (apply string-append
-              (apply append
-                     (map (lambda (s)
-                            (list s (string #\newline)))
+       (string-intersperse
                           '("package require Tk"
                             "if {[package version tile] != \"\"} {"
                             "    package require tile"
@@ -321,7 +320,8 @@
                             "        puts \"(return \\\"[string map [list \\\\ \\\\\\\\ \\\" \\\\\\\"] $result]\\\")\""
                             "    }"
                             "    flush stdout"
-                            "}")))))
+                            "}")
+                          nl))
 
      (report-error
        (lambda (x)
@@ -380,7 +380,7 @@
                ((null? x) "()")
                ((pair? x)
                 (string-append "("
-                               (apply string-append
+                               (string-concatenate
                                       (improper-list->string x #t))
                                ")"))
                ((eof-object? x) "#<eof>")
@@ -615,7 +615,7 @@
 
      (scheme-arglist->tk-argstring
        (lambda (args)
-         (apply string-append
+         (string-concatenate
                 (map scheme-arg->tk-arg
                      args))))
 
@@ -662,7 +662,7 @@
            ((collect-chars
               (lambda (c s)
                 (cond ((or (eof-object? c) (char=? c #\newline))
-                       (apply string (reverse s)))
+                       (reverse-list->string s))
                       (else (collect-chars (read-char in) (cons c s))))))
             (first-char
               (read-char in)))
