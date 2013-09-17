@@ -321,7 +321,7 @@
                             "    }"
                             "    flush stdout"
                             "}")
-                          nl))
+                          (string #\newline)))
 
      (report-error
        (lambda (x)
