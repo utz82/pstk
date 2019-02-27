@@ -1,0 +1,113 @@
+body {
+	background-color: white;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+body, td, th {
+	font-family: sans-serif;
+}
+
+h2, h3, h4, h5, h6, body {
+	font-size: 12px;
+}
+
+a:link, a:visited {
+	text-decoration: underline;
+}
+
+p {
+	position: relative; 
+}
+
+td#navi {
+	background-image: url(NaviHintergrund.gif);
+	vertical-align: top; 
+	padding-top: 1em; 
+	width: 152px
+}
+
+td#navi ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+td#navi ul li {
+	margin: 0;
+	margin-top: 3px;
+	padding: 0;
+	white-space: nowrap; 
+}
+
+td#navi ul ul li {
+	padding-left: 1em;
+}
+
+td#navi a:link,
+td#navi a:visited,
+td#navi a {
+	padding: 0 2px;
+	position: relative;
+	left: -0.5ex;
+	margin-left: 0.5ex;
+	color: white;
+	text-decoration: none;
+}
+
+td#navi li#actualdocument a:visited,
+td#navi li#actualdocument a:link {
+	font-weight: normal;
+	color: white;
+	background-image: url(Navihintergrund.gif);
+}
+
+td#navi a:hover {
+	text-decoration: underline;
+}
+
+td#navi li#actualdocument a {
+	font-weight: bold;
+	background-color: white;
+	color: black;
+}
+
+td#navi li#actualdocument a:hover {
+	text-decoration: none;
+}
+
+td#navi li#actualdocument li a:hover {
+	text-decoration: underline;
+}
+
+td#title {
+	vertical-align: middle;
+	text-align: center;
+	background-image: url(Titelhintergrund.gif); 
+}
+
+td#title h1 {
+	position: relative;
+	left: -68px;
+	z-index: 1;
+	margin: 0;
+	padding: 0;
+}
+
+td#content {
+	padding-right: 0.5em
+}
+
+td#content th,
+td#content td {
+	vertical-align: top;
+	text-align: left;
+}
+
+hr {
+	height: 1px;
+	border-width: 0;
+}

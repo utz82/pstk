@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<html>
+<head>
+
+    <link rel="last" href="Restrictions.htm" title="Restrictions" />
+    <link rel="first" href="Widget_Commands.htm" title="Widget Commands" />
+    <link rel="section" href="Widget_Commands.htm" title="Widget Commands" />
+    <link rel="section" href="Widget_Hierarchy.htm" title="Widget Hierarchy" />
+    <link rel="section" href="General_Commands.htm" title="General Commands" />
+    <link rel="section" href="Specific_Commands.htm" title="Specific Commands" />
+    <link rel="section" href="Options_and_Arguments.htm" title="Options and Arguments" />
+    <link rel="section" href="Return_Values.htm" title="Return Values" />
+    <link rel="section" href="Restrictions.htm" title="Restrictions" />
+    <link rel="up" href="../Introduction.htm" title="Introduction" />
+    <link rel="prev" href="General_Commands.htm" title="General Commands" />
+    <link rel="contents" href="../Meta/Sitemap.htm" title="Sitemap" />
+    <link rel="start" href="../../index.htm" title="Chicken/Tk" />
+    <link rel="author" href="../Meta/Author.htm" title="Author" />
+    <link rel="chapter" href="../Preface.htm" title="Preface" />
+    <link rel="chapter" href="../Introduction.htm" title="Introduction" />
+    <link rel="chapter" href="../Tutorial.htm" title="Tutorial" />
+    <link rel="chapter" href="../Implementation.htm" title="Implementation" />
+    <link rel="chapter" href="../Commands.htm" title="Commands" />
+    <link rel="chapter" href="../Options.htm" title="Options" />
+    <link rel="chapter" href="../Extensions.htm" title="Extensions" />
+    <link rel="chapter" href="../List_of_Changes.htm" title="List of Changes" />
+    <link rel="next" href="Options_and_Arguments.htm" title="Options and Arguments" /> 
+<title>
+Specific Commands</title>
+ 
+<link rel="stylesheet" href="../res/css/examples/navigationtree/BlueGray/layout.css" />
+ 
+<link rel="stylesheet" href="../res/css/examples/navigationtree/BlueGray/color.css" />
+
+<style type="text/css">
+dt {
+	color: #000080;
+	font-family: monospace;
+	
+}
+</style>
+</head>
+ 
+<body style="padding: 0; margin: 0"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+<tr>
+<td colspan="2" class="navicolumn">&#160;</td>
+ 
+<td></td>
+ 
+<td></td>
+ 
+<td></td>
+</tr>
+ 
+<tr>
+<td rowspan="2" class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/bg_00.gif" height="1" width="20" /></td>
+ 
+<td rowspan="2" align="right" class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/Titelhintergrund_l.gif" /></td>
+ 
+<td rowspan="2" id="title" width="60%" nowrap="nowrap">
+<h1>Specific Commands</h1>
+</td>
+ 
+<td style="vertical-align: top; background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenOst.gif); background-repeat: repeat-y; "><img src="../res/css/examples/navigationtree/BlueGray/SchattenNordOst.gif" width="7" height="7" /></td>
+ 
+<td><img src="../res/css/examples/navigationtree/BlueGray/bg_02_05.gif" width="41" height="7" /></td>
+</tr>
+ 
+<tr>
+<td style="background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenOst.gif)"><img src="../res/css/examples/navigationtree/BlueGray/SchattenOst.gif" /></td>
+ 
+<td></td>
+</tr>
+ 
+<tr>
+<td class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/bg_00.gif" /></td>
+ 
+<td class="navicolumn" align="right"><img src="../res/css/examples/navigationtree/BlueGray/SchattenNavi.gif" width="136" height="8" /></td>
+ 
+<td style="background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenSued.gif); background-repeat: repeat-x"><img src="../res/css/examples/navigationtree/BlueGray/SchattenSued.gif" width="100%" height="8" /></td>
+ 
+<td><img src="../res/css/examples/navigationtree/BlueGray/SchattenSuedOst.gif" width="7" height="8" /></td>
+ 
+<td width="80%"><img src="../res/css/examples/navigationtree/BlueGray/bg_04_05.gif" width="41" height="8" /></td>
+</tr>
+ 
+<tr>
+<td class="navicolumn">&#160;</td>
+ 
+<td height="100%" nowrap="nowrap" class="navicolumn" id="navi">
+
+<ul>
+<li><a href="../Preface.htm" target="_top">Preface</a></li>
+<li><a href="../Introduction.htm" target="_top">Introduction</a>
+<ul>
+<li><a href="Widget_Commands.htm" target="_top">Widget</a></li>
+<li><a href="Widget_Hierarchy.htm" target="_top">Hierarchy</a></li>
+<li><a href="General_Commands.htm" target="_top">General</a></li>
+<li id="actualdocument"><a>Specific</a></li>
+<li><a href="Options_and_Arguments.htm" target="_top">Options</a></li>
+<li><a href="Return_Values.htm" target="_top">Return Values</a></li>
+<li><a href="Restrictions.htm" target="_top">Restrictions</a></li>
+</ul></li>
+<li><a href="../Tutorial.htm" target="_top">Tutorial</a></li>
+<li><a href="../Implementation.htm" target="_top">Implementation</a></li>
+<li><a href="../Commands.htm" target="_top">Commands</a></li>
+<li><a href="../Options.htm" target="_top">Options</a></li>
+<li><a href="../Extensions.htm" target="_top">Extensions</a></li>
+<li><a href="../List_of_Changes.htm" target="_top">Changes</a></li>
+</ul></td>
+ 
+<td colspan="3" style="vertical-align: top; padding-top: 1em; padding-left: 16px" id="content">
+
+
+    <p>Most widgets have specific commands, e. g. text widgets:</p>
+  
+    <pre>
+set text1 [text .t]
+pack $text1
+$text insert 1.0 "Hello World"
+</pre>
+  
+    <p>Here the same example &#8220;translated&#8221; to Chicken/Tk:</p>
+  
+    <pre>
+(define text1 (tk 'create-widget 'text))
+(tk/pack text1)
+(text1 'insert '(1 . 0) "Hello World")
+</pre>
+  
+    <p>Every sub-command other than <code>create-widget</code> and <code>exec</code> and <code>get-id</code> will be translated to a widget-specific command, in the example above <code>insert</code> to insert text into a text widget.</p>
+  
+
+<hr />
+
+<p>
+&copy; <a href="../Meta/Author.htm" target="_top">Author</a> 
+ | <a href="../../index.htm" target="_top">Home</a> 
+ | <a href="../Meta/Sitemap.htm" target="_top">Sitemap</a> 
+</p>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

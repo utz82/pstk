@@ -1,0 +1,456 @@
+<?xml version="1.0"?>
+<html>
+<head>
+
+    <link rel="last" href="Restrictions.htm" title="Restrictions" />
+    <link rel="first" href="Widget_Commands.htm" title="Widget Commands" />
+    <link rel="section" href="Widget_Commands.htm" title="Widget Commands" />
+    <link rel="section" href="Widget_Hierarchy.htm" title="Widget Hierarchy" />
+    <link rel="section" href="General_Commands.htm" title="General Commands" />
+    <link rel="section" href="Specific_Commands.htm" title="Specific Commands" />
+    <link rel="section" href="Options_and_Arguments.htm" title="Options and Arguments" />
+    <link rel="section" href="Return_Values.htm" title="Return Values" />
+    <link rel="section" href="Restrictions.htm" title="Restrictions" />
+    <link rel="up" href="../Introduction.htm" title="Introduction" />
+    <link rel="prev" href="Widget_Hierarchy.htm" title="Widget Hierarchy" />
+    <link rel="contents" href="../Meta/Sitemap.htm" title="Sitemap" />
+    <link rel="start" href="../../index.htm" title="Chicken/Tk" />
+    <link rel="author" href="../Meta/Author.htm" title="Author" />
+    <link rel="chapter" href="../Preface.htm" title="Preface" />
+    <link rel="chapter" href="../Introduction.htm" title="Introduction" />
+    <link rel="chapter" href="../Tutorial.htm" title="Tutorial" />
+    <link rel="chapter" href="../Implementation.htm" title="Implementation" />
+    <link rel="chapter" href="../Commands.htm" title="Commands" />
+    <link rel="chapter" href="../Options.htm" title="Options" />
+    <link rel="chapter" href="../Extensions.htm" title="Extensions" />
+    <link rel="chapter" href="../List_of_Changes.htm" title="List of Changes" />
+    <link rel="next" href="Specific_Commands.htm" title="Specific Commands" /> 
+<title>
+General Commands</title>
+ 
+<link rel="stylesheet" href="../res/css/examples/navigationtree/BlueGray/layout.css" />
+ 
+<link rel="stylesheet" href="../res/css/examples/navigationtree/BlueGray/color.css" />
+
+<style type="text/css">
+dt {
+	color: #000080;
+	font-family: monospace;
+	
+}
+</style>
+</head>
+ 
+<body style="padding: 0; margin: 0"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+<tr>
+<td colspan="2" class="navicolumn">&#160;</td>
+ 
+<td></td>
+ 
+<td></td>
+ 
+<td></td>
+</tr>
+ 
+<tr>
+<td rowspan="2" class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/bg_00.gif" height="1" width="20" /></td>
+ 
+<td rowspan="2" align="right" class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/Titelhintergrund_l.gif" /></td>
+ 
+<td rowspan="2" id="title" width="60%" nowrap="nowrap">
+<h1>General Commands</h1>
+</td>
+ 
+<td style="vertical-align: top; background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenOst.gif); background-repeat: repeat-y; "><img src="../res/css/examples/navigationtree/BlueGray/SchattenNordOst.gif" width="7" height="7" /></td>
+ 
+<td><img src="../res/css/examples/navigationtree/BlueGray/bg_02_05.gif" width="41" height="7" /></td>
+</tr>
+ 
+<tr>
+<td style="background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenOst.gif)"><img src="../res/css/examples/navigationtree/BlueGray/SchattenOst.gif" /></td>
+ 
+<td></td>
+</tr>
+ 
+<tr>
+<td class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/bg_00.gif" /></td>
+ 
+<td class="navicolumn" align="right"><img src="../res/css/examples/navigationtree/BlueGray/SchattenNavi.gif" width="136" height="8" /></td>
+ 
+<td style="background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenSued.gif); background-repeat: repeat-x"><img src="../res/css/examples/navigationtree/BlueGray/SchattenSued.gif" width="100%" height="8" /></td>
+ 
+<td><img src="../res/css/examples/navigationtree/BlueGray/SchattenSuedOst.gif" width="7" height="8" /></td>
+ 
+<td width="80%"><img src="../res/css/examples/navigationtree/BlueGray/bg_04_05.gif" width="41" height="8" /></td>
+</tr>
+ 
+<tr>
+<td class="navicolumn">&#160;</td>
+ 
+<td height="100%" nowrap="nowrap" class="navicolumn" id="navi">
+
+<ul>
+<li><a href="../Preface.htm" target="_top">Preface</a></li>
+<li><a href="../Introduction.htm" target="_top">Introduction</a>
+<ul>
+<li><a href="Widget_Commands.htm" target="_top">Widget</a></li>
+<li><a href="Widget_Hierarchy.htm" target="_top">Hierarchy</a></li>
+<li id="actualdocument"><a>General</a></li>
+<li><a href="Specific_Commands.htm" target="_top">Specific</a></li>
+<li><a href="Options_and_Arguments.htm" target="_top">Options</a></li>
+<li><a href="Return_Values.htm" target="_top">Return Values</a></li>
+<li><a href="Restrictions.htm" target="_top">Restrictions</a></li>
+</ul></li>
+<li><a href="../Tutorial.htm" target="_top">Tutorial</a></li>
+<li><a href="../Implementation.htm" target="_top">Implementation</a></li>
+<li><a href="../Commands.htm" target="_top">Commands</a></li>
+<li><a href="../Options.htm" target="_top">Options</a></li>
+<li><a href="../Extensions.htm" target="_top">Extensions</a></li>
+<li><a href="../List_of_Changes.htm" target="_top">Changes</a></li>
+</ul></td>
+ 
+<td colspan="3" style="vertical-align: top; padding-top: 1em; padding-left: 16px" id="content">
+
+
+    <p>There are commands to handle widgets, e.&#160;g. to handle the geometry of a text widget:</p>
+  
+    <pre>
+set text1 [text .t]
+pack $text1
+</pre>
+  
+    <p>Here the same command &#8220;translated&#8221; to Chicken/Tk:</p>
+  
+    <pre>
+(define text1 (tk 'create-widget 'text))
+(tk/pack text1)
+</pre>
+  
+    <p>Here a list of general commands and their Tcl/Tk pendants:</p>
+  
+    
+<!-- embed -->
+
+<table border="1" frame="void" rules="all">
+  <thead>
+    <tr>
+      <th>
+        <p>Chicken/Tk</p>
+      </th>
+    
+      <th>
+        <p>Tcl/Tk</p>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        <p>tk/bgerror</p>
+      </td>
+    
+      <td>
+        <p>bgerror</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/bind</p>
+      </td>
+    
+      <td>
+        <p>bind</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/bindtags</p>
+      </td>
+    
+      <td>
+        <p>bindtags</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/clipboard</p>
+      </td>
+    
+      <td>
+        <p>clipboard</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/destroy</p>
+      </td>
+    
+      <td>
+        <p>destroy</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/event</p>
+      </td>
+    
+      <td>
+        <p>event</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/focus</p>
+      </td>
+    
+      <td>
+        <p>focus</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/grab</p>
+      </td>
+    
+      <td>
+        <p>grab</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/grid</p>
+      </td>
+    
+      <td>
+        <p>grid</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/image</p>
+      </td>
+    
+      <td>
+        <p>image</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/lower</p>
+      </td>
+    
+      <td>
+        <p>lower</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/option</p>
+      </td>
+    
+      <td>
+        <p>option</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/pack</p>
+      </td>
+    
+      <td>
+        <p>pack</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/place</p>
+      </td>
+    
+      <td>
+        <p>place</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/raise</p>
+      </td>
+    
+      <td>
+        <p>raise</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/selection</p>
+      </td>
+    
+      <td>
+        <p>selection</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/winfo</p>
+      </td>
+    
+      <td>
+        <p>winfo</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/wm</p>
+      </td>
+    
+      <td>
+        <p>wm</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/choosecolor</p>
+      </td>
+    
+      <td>
+        <p>tk_chooseColor</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/choosedirectory</p>
+      </td>
+    
+      <td>
+        <p>tk_chooseDirectory</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/dialog</p>
+      </td>
+    
+      <td>
+        <p>tk_dialog</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/getopenfile</p>
+      </td>
+    
+      <td>
+        <p>tk_getOpenFile</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/getsavefile</p>
+      </td>
+    
+      <td>
+        <p>tk_getSaveFile</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/messagebox</p>
+      </td>
+    
+      <td>
+        <p>tk_messageBox</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/focusfollowsmouse</p>
+      </td>
+    
+      <td>
+        <p>tk_focusFollowsMouse</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/focusnext</p>
+      </td>
+    
+      <td>
+        <p>tk_focusNext</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/focusprev</p>
+      </td>
+    
+      <td>
+        <p>tk_focusPrev</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/popup</p>
+      </td>
+    
+      <td>
+        <p>tk_popup</p>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <p>tk/wait</p>
+      </td>
+    
+      <td>
+        <p>tkwait</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- /embed -->
+
+  
+
+<hr />
+
+<p>
+&copy; <a href="../Meta/Author.htm" target="_top">Author</a> 
+ | <a href="../../index.htm" target="_top">Home</a> 
+ | <a href="../Meta/Sitemap.htm" target="_top">Sitemap</a> 
+</p>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

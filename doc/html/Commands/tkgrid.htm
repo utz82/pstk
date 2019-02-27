@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<html>
+<head>
+
+    <link rel="last" href="tkwm.htm" title="tk/wm" />
+    <link rel="first" href="bitmap.htm" title="bitmap" />
+    <link rel="section" href="bitmap.htm" title="bitmap" />
+    <link rel="section" href="evalwish.htm" title="eval-wish" />
+    <link rel="section" href="gettkvar.htm" title="get-tk-var" />
+    <link rel="section" href="photo.htm" title="photo" />
+    <link rel="section" href="settkvar.htm" title="set-tk-var!" />
+    <link rel="section" href="tk.htm" title="tk" />
+    <link rel="section" href="tkidwidget.htm" title="tk-id-&gt;widget" />
+    <link rel="section" href="tkvar.htm" title="tk-var" />
+    <link rel="section" href="tkafter.htm" title="tk/after" />
+    <link rel="section" href="tkappname.htm" title="tk/appname" />
+    <link rel="section" href="tkbind.htm" title="tk/bind" />
+    <link rel="section" href="tkbindtags.htm" title="tk/bindtags" />
+    <link rel="section" href="tkcaret.htm" title="tk/caret" />
+    <link rel="section" href="tkchoosecolor.htm" title="tk/choosecolor" />
+    <link rel="section" href="tkchoosedirectory.htm" title="tk/choosedirectory" />
+    <link rel="section" href="tkclipboard.htm" title="tk/clipboard" />
+    <link rel="section" href="tkconsole.htm" title="tk/console" />
+    <link rel="section" href="tkdestroy.htm" title="tk/destroy" />
+    <link rel="section" href="tkdialog.htm" title="tk/dialog" />
+    <link rel="section" href="tkevent.htm" title="tk/event" />
+    <link rel="section" href="tkfocus.htm" title="tk/focus" />
+    <link rel="section" href="tkgetopenfile.htm" title="tk/getopenfile" />
+    <link rel="section" href="tkgetsavefile.htm" title="tk/getsavefile" />
+    <link rel="section" href="tkgrab.htm" title="tk/grab" />
+    <link rel="section" href="tkgrid.htm" title="tk/grid" />
+    <link rel="section" href="tkimage.htm" title="tk/image" />
+    <link rel="section" href="tklower.htm" title="tk/lower" />
+    <link rel="section" href="tkmessagebox.htm" title="tk/messagebox" />
+    <link rel="section" href="tkoption.htm" title="tk/option" />
+    <link rel="section" href="tkpack.htm" title="tk/pack" />
+    <link rel="section" href="tkplace.htm" title="tk/place" />
+    <link rel="section" href="tkpopup.htm" title="tk/popup" />
+    <link rel="section" href="tkraise.htm" title="tk/raise" />
+    <link rel="section" href="tkscaling.htm" title="tk/scaling" />
+    <link rel="section" href="tkupdate.htm" title="tk/update" />
+    <link rel="section" href="tkuseinputmethods.htm" title="tk/useinputmethods" />
+    <link rel="section" href="tkwait.htm" title="tk/wait" />
+    <link rel="section" href="tkwindowingsystem.htm" title="tk/windowingsystem" />
+    <link rel="section" href="tkwinfo.htm" title="tk/winfo" />
+    <link rel="section" href="tkwm.htm" title="tk/wm" />
+    <link rel="up" href="../Commands.htm" title="Commands" />
+    <link rel="prev" href="tkgrab.htm" title="tk/grab" />
+    <link rel="contents" href="../Meta/Sitemap.htm" title="Sitemap" />
+    <link rel="start" href="../../index.htm" title="Chicken/Tk" />
+    <link rel="author" href="../Meta/Author.htm" title="Author" />
+    <link rel="subsection" href="grid/tkgrid_bbox.htm" title="tk/grid bbox" />
+    <link rel="subsection" href="grid/tkgrid_columnconfigure.htm" title="tk/grid columnconfigure" />
+    <link rel="subsection" href="grid/tkgrid_configure.htm" title="tk/grid configure" />
+    <link rel="subsection" href="grid/tkgrid_forget.htm" title="tk/grid forget" />
+    <link rel="subsection" href="grid/tkgrid_info.htm" title="tk/grid info" />
+    <link rel="subsection" href="grid/tkgrid_location.htm" title="tk/grid location" />
+    <link rel="subsection" href="grid/tkgrid_propagate.htm" title="tk/grid propagate" />
+    <link rel="subsection" href="grid/tkgrid_rowconfigure.htm" title="tk/grid rowconfigure" />
+    <link rel="subsection" href="grid/tkgrid_remove.htm" title="tk/grid remove" />
+    <link rel="subsection" href="grid/tkgrid_size.htm" title="tk/grid size" />
+    <link rel="subsection" href="grid/tkgrid_slaves.htm" title="tk/grid slaves" />
+    <link rel="chapter" href="../Preface.htm" title="Preface" />
+    <link rel="chapter" href="../Introduction.htm" title="Introduction" />
+    <link rel="chapter" href="../Tutorial.htm" title="Tutorial" />
+    <link rel="chapter" href="../Implementation.htm" title="Implementation" />
+    <link rel="chapter" href="../Commands.htm" title="Commands" />
+    <link rel="chapter" href="../Options.htm" title="Options" />
+    <link rel="chapter" href="../Extensions.htm" title="Extensions" />
+    <link rel="chapter" href="../List_of_Changes.htm" title="List of Changes" />
+    <link rel="next" href="grid/tkgrid_bbox.htm" title="tk/grid bbox" /> 
+<title>
+tk/grid</title>
+ 
+<link rel="stylesheet" href="../res/css/examples/navigationtree/BlueGray/layout.css" />
+ 
+<link rel="stylesheet" href="../res/css/examples/navigationtree/BlueGray/color.css" />
+
+<style type="text/css">
+dt {
+	color: #000080;
+	font-family: monospace;
+	
+}
+</style>
+</head>
+ 
+<body style="padding: 0; margin: 0"><table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%">
+<tr>
+<td colspan="2" class="navicolumn">&#160;</td>
+ 
+<td></td>
+ 
+<td></td>
+ 
+<td></td>
+</tr>
+ 
+<tr>
+<td rowspan="2" class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/bg_00.gif" height="1" width="20" /></td>
+ 
+<td rowspan="2" align="right" class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/Titelhintergrund_l.gif" /></td>
+ 
+<td rowspan="2" id="title" width="60%" nowrap="nowrap">
+<h1>tk/grid</h1>
+</td>
+ 
+<td style="vertical-align: top; background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenOst.gif); background-repeat: repeat-y; "><img src="../res/css/examples/navigationtree/BlueGray/SchattenNordOst.gif" width="7" height="7" /></td>
+ 
+<td><img src="../res/css/examples/navigationtree/BlueGray/bg_02_05.gif" width="41" height="7" /></td>
+</tr>
+ 
+<tr>
+<td style="background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenOst.gif)"><img src="../res/css/examples/navigationtree/BlueGray/SchattenOst.gif" /></td>
+ 
+<td></td>
+</tr>
+ 
+<tr>
+<td class="navicolumn"><img src="../res/css/examples/navigationtree/BlueGray/bg_00.gif" /></td>
+ 
+<td class="navicolumn" align="right"><img src="../res/css/examples/navigationtree/BlueGray/SchattenNavi.gif" width="136" height="8" /></td>
+ 
+<td style="background-image: url(../res/css/examples/navigationtree/BlueGray/SchattenSued.gif); background-repeat: repeat-x"><img src="../res/css/examples/navigationtree/BlueGray/SchattenSued.gif" width="100%" height="8" /></td>
+ 
+<td><img src="../res/css/examples/navigationtree/BlueGray/SchattenSuedOst.gif" width="7" height="8" /></td>
+ 
+<td width="80%"><img src="../res/css/examples/navigationtree/BlueGray/bg_04_05.gif" width="41" height="8" /></td>
+</tr>
+ 
+<tr>
+<td class="navicolumn">&#160;</td>
+ 
+<td height="100%" nowrap="nowrap" class="navicolumn" id="navi">
+
+<ul>
+<li><a href="../Preface.htm" target="_top">Preface</a></li>
+<li><a href="../Introduction.htm" target="_top">Introduction</a></li>
+<li><a href="../Tutorial.htm" target="_top">Tutorial</a></li>
+<li><a href="../Implementation.htm" target="_top">Implementation</a></li>
+<li><a href="../Commands.htm" target="_top">Commands</a>
+<ul>
+<li><a href="bitmap.htm" target="_top">bitmap</a></li>
+<li><a href="evalwish.htm" target="_top">eval-wish</a></li>
+<li><a href="gettkvar.htm" target="_top">get-tk-var</a></li>
+<li><a href="photo.htm" target="_top">photo</a></li>
+<li><a href="settkvar.htm" target="_top">set-tk-var!</a></li>
+<li><a href="tk.htm" target="_top">tk</a></li>
+<li><a href="tkidwidget.htm" target="_top">tk-id-&gt;widget</a></li>
+<li><a href="tkvar.htm" target="_top">tk-var</a></li>
+<li><a href="tkafter.htm" target="_top">tk/after</a></li>
+<li><a href="tkappname.htm" target="_top">tk/appname</a></li>
+<li><a href="tkbind.htm" target="_top">tk/bind</a></li>
+<li><a href="tkbindtags.htm" target="_top">tk/bindtags</a></li>
+<li><a href="tkcaret.htm" target="_top">tk/caret</a></li>
+<li><a href="tkchoosecolor.htm" target="_top">tk/choosecolor</a></li>
+<li><a href="tkchoosedirectory.htm" target="_top">tk/choosedirectory</a></li>
+<li><a href="tkclipboard.htm" target="_top">tk/clipboard</a></li>
+<li><a href="tkconsole.htm" target="_top">tk/console</a></li>
+<li><a href="tkdestroy.htm" target="_top">tk/destroy</a></li>
+<li><a href="tkdialog.htm" target="_top">tk/dialog</a></li>
+<li><a href="tkevent.htm" target="_top">tk/event</a></li>
+<li><a href="tkfocus.htm" target="_top">tk/focus</a></li>
+<li><a href="tkgetopenfile.htm" target="_top">tk/getopenfile</a></li>
+<li><a href="tkgetsavefile.htm" target="_top">tk/getsavefile</a></li>
+<li><a href="tkgrab.htm" target="_top">tk/grab</a></li>
+<li id="actualdocument"><a>tk/grid</a>
+<ul>
+<li><a href="grid/tkgrid_bbox.htm" target="_top">bbox</a></li>
+<li><a href="grid/tkgrid_columnconfigure.htm" target="_top">columnconfigure</a></li>
+<li><a href="grid/tkgrid_configure.htm" target="_top">configure</a></li>
+<li><a href="grid/tkgrid_forget.htm" target="_top">forget</a></li>
+<li><a href="grid/tkgrid_info.htm" target="_top">info</a></li>
+<li><a href="grid/tkgrid_location.htm" target="_top">location</a></li>
+<li><a href="grid/tkgrid_propagate.htm" target="_top">propagate</a></li>
+<li><a href="grid/tkgrid_rowconfigure.htm" target="_top">rowconfigure</a></li>
+<li><a href="grid/tkgrid_remove.htm" target="_top">remove</a></li>
+<li><a href="grid/tkgrid_size.htm" target="_top">size</a></li>
+<li><a href="grid/tkgrid_slaves.htm" target="_top">slaves</a></li>
+</ul></li>
+<li><a href="tkimage.htm" target="_top">tk/image</a></li>
+<li><a href="tklower.htm" target="_top">tk/lower</a></li>
+<li><a href="tkmessagebox.htm" target="_top">tk/messagebox</a></li>
+<li><a href="tkoption.htm" target="_top">tk/option</a></li>
+<li><a href="tkpack.htm" target="_top">tk/pack</a></li>
+<li><a href="tkplace.htm" target="_top">tk/place</a></li>
+<li><a href="tkpopup.htm" target="_top">tk/popup</a></li>
+<li><a href="tkraise.htm" target="_top">tk/raise</a></li>
+<li><a href="tkscaling.htm" target="_top">tk/scaling</a></li>
+<li><a href="tkupdate.htm" target="_top">tk/update</a></li>
+<li><a href="tkuseinputmethods.htm" target="_top">tk/useinputmethods</a></li>
+<li><a href="tkwait.htm" target="_top">tk/wait</a></li>
+<li><a href="tkwindowingsystem.htm" target="_top">tk/windowingsystem</a></li>
+<li><a href="tkwinfo.htm" target="_top">tk/winfo</a></li>
+<li><a href="tkwm.htm" target="_top">tk/wm</a></li>
+</ul></li>
+<li><a href="../Options.htm" target="_top">Options</a></li>
+<li><a href="../Extensions.htm" target="_top">Extensions</a></li>
+<li><a href="../List_of_Changes.htm" target="_top">Changes</a></li>
+</ul></td>
+ 
+<td colspan="3" style="vertical-align: top; padding-top: 1em; padding-left: 16px" id="content">
+
+
+    <p>The tk/grid command is used to communicate with the grid geometry manager that arranges widgets in rows and columns inside of another window, called the geometry master (or master window). The tk/grid command can have any of several forms, depending on the option argument:</p>
+  
+    <dl>
+      <dt>(tk/grid slave ?slave ...? ?options?)</dt>
+    
+      <dd>If the first argument to grid is suitable as the first slave argument to tk/grid configure, either a window name (any value starting with .) or one of the characters x or ^ (see the ``RELATIVE PLACEMENT'' section below), then the command is processed in the same way as tk/grid configure.</dd>
+    </dl>
+  
+    
+<!-- embed -->
+
+    <ul>
+      <li><a href="grid/tkgrid_bbox.htm" target="_top">tk/grid bbox</a></li> 
+      <li><a href="grid/tkgrid_columnconfigure.htm" target="_top">tk/grid columnconfigure</a></li> 
+      <li><a href="grid/tkgrid_configure.htm" target="_top">tk/grid configure</a></li> 
+      <li><a href="grid/tkgrid_forget.htm" target="_top">tk/grid forget</a></li> 
+      <li><a href="grid/tkgrid_info.htm" target="_top">tk/grid info</a></li> 
+      <li><a href="grid/tkgrid_location.htm" target="_top">tk/grid location</a></li> 
+      <li><a href="grid/tkgrid_propagate.htm" target="_top">tk/grid propagate</a></li> 
+      <li><a href="grid/tkgrid_rowconfigure.htm" target="_top">tk/grid rowconfigure</a></li> 
+      <li><a href="grid/tkgrid_remove.htm" target="_top">tk/grid remove</a></li> 
+      <li><a href="grid/tkgrid_size.htm" target="_top">tk/grid size</a></li> 
+      <li><a href="grid/tkgrid_slaves.htm" target="_top">tk/grid slaves</a></li>
+    </ul>
+<!-- /embed -->
+
+  
+    <h1>Relative Placement</h1>
+  
+    <p>The tk/grid command contains a limited set of capabilities that permit layouts to be created without specifying the row and column information for each slave. This permits slaves to be rearranged, added, or removed without the need to explicitly specify row and column information. When no column or row information is specified for a slave, default values are chosen for column, row, columnspan and rowspan at the time the slave is managed. The values are chosen based upon the current layout of the grid, the position of the slave relative to other slaves in the same tk/grid command, and the presence of the characters -, x, and ^ in tk/grid command where slave names are normally expected.</p>
+  
+    <dl>
+      <dt>-</dt>
+    
+      <dd>This increases the columnspan of the slave to the left. Several -'s in a row will successively increase the columnspan. A - may not follow a ^ or a x, nor may it be the first slave argument to tk/grid configure.</dd>
+    
+      <dt>x</dt>
+    
+      <dd>This leaves an empty column between the slave on the left and the slave on the right.</dd>
+    
+      <dt>^</dt>
+    
+      <dd>This extends the rowspan of the slave above the ^'s in the grid. The number of ^'s in a row must match the number of columns spanned by the slave above it.</dd>
+    </dl>
+  
+    <hr />
+  
+    <p>Corresponding Tcl/Tk command:</p>
+  
+    <pre>
+grid ...
+</pre>
+  
+
+<hr />
+
+<p>
+&copy; <a href="../Meta/Author.htm" target="_top">Author</a> 
+ | <a href="../../index.htm" target="_top">Home</a> 
+ | <a href="../Meta/Sitemap.htm" target="_top">Sitemap</a> 
+</p>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

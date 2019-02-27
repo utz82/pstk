@@ -1,0 +1,33 @@
+td#navi li#actualdocument ul li,
+td#navi li#actualdocument ul li a:link,
+td#navi li#actualdocument ul li a:visited,
+td.navicolumn {
+	background-color: #000080;
+}
+
+h1, h2, h3, h4, h5, h6, strong, b,
+pre, code,
+a:link,
+td#navi li#actualdocument a,
+td#title h1 {
+	color: #000080;
+}
+
+a:visited {
+	color: #000040;
+}
+
+td#navi li#actualdocument a,
+td#title {
+	background-color: #E0E0E0
+}
+
+
+hr {
+	color: #000080;
+	background-color: #000080;
+}
+
+table, thead, tbody, tfoot, tr, td, th, {
+	border-color: #000080;
+}
