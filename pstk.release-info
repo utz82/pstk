@@ -1,0 +1,9 @@
+(repo git "https://github.com/utz82/pstk.git")
+
+(uri targz "https://github.com/utz82/pstk/archive/{egg-release}.tar.gz")
+(release "1.0")
+(release "1.1")
+(release "1.2")
+(release "1.2.1")
+(release "1.2.2")
+(release "1.3.0")
