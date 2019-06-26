@@ -62,6 +62,8 @@
 ;; Thank you!
 ;;
 ;; Change Log:
+;; 2019-06-26 Remove legacy keyword support detection, map panedwindow
+;;            through ttk-map-widgets
 ;; 2019-02-26 Chicken 5 compatibility
 ;; 2019-02-26 Set default wish-program to tclsh8.6
 ;; 2010-07-03 Optional argument to 'start' for inputting name of wish/tclsh
@@ -169,12 +171,6 @@
   (define *wish-program* "tclsh8.6")
   (define *wish-debug-input* #f)
   (define *wish-debug-output* #f)
-
-  (define *use-keywords?*
-    (or (not (symbol? 'text:))
-        (not (symbol? ':text))
-        (string=? "text" (symbol->string 'text:))
-        (string=? "text" (symbol->string ':text))))
 
   (define tk #f)
   (define tk-dispatch-event #f)
@@ -352,8 +348,7 @@
 
      (option?
        (lambda (x)
-         (or (and *use-keywords?*
-                  (keyword? x))
+         (or (keyword? x)
              (and (symbol? x)
                   (let* ((s (symbol->string x))
                          (n (string-length s)))
@@ -361,8 +356,7 @@
 
      (make-option-string
        (lambda (x)
-         (if (and *use-keywords?*
-                  (keyword? x))
+         (if (keyword? x)
            (string-append " -" (keyword->string x))
            (let ((s (symbol->string x)))
              (string-append " -"
