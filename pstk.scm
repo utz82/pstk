@@ -784,6 +784,7 @@
                 (set! ttk-widget-map '("button" "checkbutton" "radiobutton"
                                        "menubutton" "label" "entry" "frame"
                                        "labelframe" "scrollbar" "notebook"
+				       "panedwindow"
                                        "progressbar" "combobox" "separator"
                                        "scale" "sizegrip" "treeview")))
                ((eq? x 'none)
