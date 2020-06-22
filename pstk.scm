@@ -62,6 +62,8 @@
 ;; Thank you!
 ;;
 ;; Change Log:
+;; 2020-06-22 Shut down application when pipe to Scheme process is broken,
+;;            add an option to turn Tk errors into Scheme exceptions
 ;; 2019-06-26 Remove legacy keyword support detection, map panedwindow
 ;;            through ttk-map-widgets
 ;; 2019-02-26 Chicken 5 compatibility
@@ -102,6 +104,7 @@
 
 (module pstk
   (tk
+   tk-throw-exceptions
    tk-dispatch-event
    tk-end
    tk-eval
@@ -227,6 +230,13 @@
   (define ttk/set-theme #f)
   (define ttk/style #f)
 
+  (define tk-throw-exceptions
+    (let ((enabled #f))
+      (lambda args
+	(if (null? args)
+	    enabled
+	    (set! enabled (car args))))))
+
   (letrec
 
     ((nl (string #\newline))
@@ -329,10 +339,11 @@
                           (string #\newline)))
 
      (report-error
-       (lambda (x)
-         (newline)
-         (display x)
-         (newline)))
+      (lambda (x)
+        (newline)
+        (display x)
+        (newline)
+	(when (tk-throw-exceptions) (error 'tk (->string x)))))
 
      (run-program
        (lambda (program)
