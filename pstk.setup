@@ -5,5 +5,5 @@
 (install-extension
  'pstk
  '("pstk.o" "pstk.so" "pstk.import.so")
- '((version "1.4.0")
+ '((version "1.4.1")
    (static "pstk.o")))
