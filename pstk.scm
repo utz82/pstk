@@ -134,6 +134,7 @@
    tk/focus-follows-mouse
    tk/focus-next
    tk/focus-prev
+   tk/font
    tk/get-open-file
    tk/get-save-file
    tk/grab
@@ -205,6 +206,7 @@
   (define tk/focus-follows-mouse #f)
   (define tk/focus-next #f)
   (define tk/focus-prev #f)
+  (define tk/font #f)
   (define tk/get-open-file #f)
   (define tk/get-save-file #f)
   (define tk/grab #f)
@@ -877,6 +879,7 @@
     (set! tk/destroy (make-wish-func 'destroy))
     (set! tk/event (make-wish-func 'event))
     (set! tk/focus (make-wish-func 'focus))
+    (set! tk/font (make-wish-func 'font))
     (set! tk/grab (make-wish-func 'grab))
     (set! tk/grid (make-wish-func 'grid))
     (set! tk/image (make-wish-func 'image))
