@@ -4,7 +4,7 @@
 ;; Copyright (c) 2006-2008, Nils M Holm
 ;; Copyright (c) 2004, Wolf-Dieter Busch
 ;; All rights reserved.
-;;
+;; 
 ;; Redistribution and use in source and binary forms, with or without
 ;; modification, are permitted provided that the following conditions
 ;; are met:
@@ -32,7 +32,7 @@
 ;; http://pi7.fernuni-hagen.de/hartrumpf/scheme_wish.scm
 ;;
 ;; These are the changes that I (Nils) made to turn Chicken/Tk into PS/Tk:
-;;
+;; 
 ;; - Removed all Chicken-isms except for PROCESS.
 ;; - All PS/Tk function names begin with TK/ or TK-:
 ;;     EVAL-WISH   --> TK-EVAL-WISH
@@ -62,6 +62,11 @@
 ;; Thank you!
 ;;
 ;; Change Log:
+
+;; 2025-05-01 Updated for chicken-6 by J. Altfas. Moved tk-init-string to
+;;            an included file as a multi-line string constant (#<<..END), to 
+;;            reduce Tcl "quoting hell", easier to read and maintain.
+
 ;; 2020-06-22 Shut down application when pipe to Scheme process is broken,
 ;;            add an option to turn Tk errors into Scheme exceptions
 ;; 2019-06-26 Remove legacy keyword support detection, map panedwindow
@@ -102,7 +107,7 @@
 ;; 2006-12-02 Added Scheme 48 port, portable GENSYM, R5RS fixes.
 ;; 2006-12-02 Added PLT/Windows port.
 
-(module pstk
+(module pstk-SIS-Gui
   (tk
    tk-throw-exceptions
    tk-dispatch-event
@@ -161,21 +166,24 @@
    ttk/style
    )
 
-  (import scheme)
   (cond-expand
     (chicken-4
-     (import chicken posix)
+     (import scheme chicken posix)
      (use posix
-	  (only data-structures string-intersperse)
-	  (only srfi-13 string-concatenate)))
+	    (only data-structures string-intersperse)
+	    (only srfi-13 string-concatenate)))
     (chicken-5
-     (import chicken.base chicken.keyword chicken.file.posix chicken.process
-	     chicken.string scheme srfi-1 srfi-13)))
+     (import scheme chicken.base chicken.keyword chicken.file.posix
+      chicken.process chicken.string srfi-1 srfi-13))
+    (chicken-6
+     (import scheme.base scheme.cxr scheme.read scheme.write chicken.base
+             chicken.keyword chicken.file.posix chicken.process
+             chicken.string srfi-1 srfi-13)))
 
-  (define *wish-program* "tclsh8.6")
+  (define *wish-program* "wish9.0")
   (define *wish-debug-input* #f)
   (define *wish-debug-output* #f)
-
+ 
   (define tk #f)
   (define tk-dispatch-event #f)
   (define tk-end #f)
@@ -239,107 +247,28 @@
 	    enabled
 	    (set! enabled (car args))))))
 
+  (include "tkinitstr.scm")
+
   (letrec
 
     ((nl (string #\newline))
-
      (wish-input #f)
-
      (wish-output #f)
-
      (tk-is-running #f)
-
      (tk-ids+widgets '())
-
      (tk-widgets '())
-
      (commands-invoked-by-tk '())
-
      (inverse-commands-invoked-by-tk '())
-
      (in-callback #f)
-
      (callback-mutex #t)
-
      (ttk-widget-map '())
 
-     (tk-init-string
-       (string-intersperse
-                          '("package require Tk"
-                            "if {[package version tile] != \"\"} {"
-                            "    package require tile"
-                            "}"
-                            ""
-                            "namespace eval AutoName {"
-                            "    variable c 0"
-                            "    proc autoName {{result \\#\\#}} {"
-                            "        variable c"
-                            "        append result [incr c]"
-                            "    }"
-                            "    namespace export *"
-                            "}"
-                            ""
-                            "namespace import AutoName::*"
-                            ""
-                            "proc callToScm {callKey args} {"
-                            "    global scmVar"
-			    "    if { [catch {"
-                            "            set resultKey [autoName]"
-                            "            puts \"(call $callKey \\\"$resultKey\\\" $args)\""
-                            "            flush stdout"
-                            "            vwait scmVar($resultKey)"
-                            "            set result $scmVar($resultKey)"
-                            "            unset scmVar($resultKey)"
-                            "            set result"
-			    "         }]} { exit 1 }"
-                            "}"
-                            ""
-                            "proc tclListToScmList {l} {"
-                            "    switch [llength $l] {"
-                            "        0 {"
-                            "            return ()"
-                            "        }"
-                            "        1 {"
-                            "            if {[string range $l 0 0] eq \"\\#\"} {"
-                            "                return $l"
-                            "            }"
-                            "            if {[regexp {^[0-9]+$} $l]} {"
-                            "                return $l"
-                            "            }"
-                            "            if {[regexp {^[.[:alpha:]][^ ,\\\"\\'\\[\\]\\\\;]*$} $l]} {"
-                            "                return $l"
-                            "            }"
-                            "            set result \\\""
-                            "            append result\\"
-                            "                [string map [list \\\" \\\\\\\" \\\\ \\\\\\\\] $l]"
-                            "            append result \\\""
-                            ""
-                            "        }"
-                            "        default {"
-                            "            set result {}"
-                            "            foreach el $l {"
-                            "                append result \" \" [tclListToScmList $el]"
-                            "            }"
-                            "            set result [string range $result 1 end]"
-                            "            return \"($result)\""
-                            "        }"
-                            "    }"
-                            "}"
-                            ""
-                            "proc evalCmdFromScm {cmd {properly 0}} {"
-                            "    if {[catch {"
-                            "        set result [uplevel \\#0 $cmd]"
-                            "    } err]} {"
-                            "        puts \"(error \\\"[string map [list \\\\ \\\\\\\\ \\\" \\\\\\\"] $err]\\\")\""
-                            "    } elseif $properly {"
-                            "        puts \"(return [tclListToScmList $result])\""
-                            "    } else {"
-                            "        puts \"(return \\\"[string map [list \\\\ \\\\\\\\ \\\" \\\\\\\"] $result]\\\")\""
-                            "    }"
-                            "    flush stdout"
-                            "}")
-                          (string #\newline)))
+     ; ====== TK-INIT-STRING ====================================
 
+     (tk-init-string tkinitstr)
+
+     ;;====== END TK-INIT-STRING =================================
+     
      (report-error
       (lambda (x)
         (newline)
@@ -348,12 +277,19 @@
 	(when (tk-throw-exceptions) (error 'tk (->string x)))))
 
      (run-program
-       (lambda (program)
-         (call-with-values
+      (lambda (program)
+        (cond-expand
+         (chicken-6
+          (let* ((procobj (process program))
+                 (inport (process-input-port procobj))
+                 (outport (process-output-port procobj)))
+            (list outport inport)))
+         (else
+          (call-with-values
            (lambda ()
              (process program))
            (lambda (in out pid)
-             (list in out)))))
+             (list in out)))))))
 
      (flush-output-port flush-output)
 
@@ -403,41 +339,50 @@
                (else "#<other>"))))
 
      (string-translate
-       (lambda (s map)
-         (letrec
-           ((s-prepend (lambda (s1 s2)
-                         (cond ((null? s1) s2)
-                               (else (s-prepend (cdr s1) (cons (car s1) s2))))))
-            (s-xlate (lambda (s r)
-                       (cond ((null? s) (reverse r))
-                             (else (let ((n (assv (car s) map)))
-                                     (cond (n (s-xlate (cdr s)
-                                                       (s-prepend (string->list (cdr n)) r)))
-                                           (else (s-xlate (cdr s)
-                                                          (cons (car s) r))))))))))
-           (list->string
-             (s-xlate (string->list s) '())))))
+      (lambda (s map)
+        (letrec
+            ((s-prepend (lambda (s1 s2)
+                          (cond ((null? s1) s2)
+                                (else (s-prepend (cdr s1) (cons (car s1) s2))))))
+             (s-xlate (lambda (s r)
+                        (cond
+                         ((null? s) (reverse r))
+                         (else
+                          (let ((n (assv (car s) map)))
+                            (cond
+                             (n (s-xlate (cdr s)
+                                         (s-prepend (string->list (cdr n)) r)))
+                             (else (s-xlate (cdr s)
+                                            (cons (car s) r))))))))))
+          (list->string
+           (s-xlate (string->list s) '())))))
 
      (string-trim-left
        (lambda (str)
-         (cond ((string=? str "") "")
-               ((string=? (substring str 0 1) " ")
-                (string-trim-left (substring str 1
-                                             (string-length str))))
-               (else str))))
+         (cond 
+		   ((string=? str "") "")
+           ((string=? (substring str 0 1) " ")
+			(string-trim-left (substring str 1
+										 (string-length str))))
+		   (else str))))
 
      (get-property
        (lambda (key args . thunk)
-         (cond ((null? args)
-                (cond ((null? thunk) #f)
-                      (else ((car thunk)))))
-               ((eq? key (car args))
-                (cond ((pair? (cdr args)) (cadr args))
-                      (else (report-error (list 'get-property key args)))))
-               ((or (not (pair? (cdr args)))
-                    (not (pair? (cddr args))))
-                (report-error (list 'get-property key args)))
-               (else (apply get-property key (cddr args) thunk)))))
+         (cond
+          ((null? args)
+           (cond
+            ((null? thunk) #f)
+            (else ((car thunk)))))
+          ((eq? key (car args))
+           (cond
+            ((pair? (cdr args)) (cadr args))
+            (else
+             (report-error (list 'get-property key args)))))
+          ((or (not (pair? (cdr args)))
+               (not (pair? (cddr args))))
+           (report-error (list 'get-property key args)))
+          (else
+           (apply get-property key (cddr args) thunk)))))
 
      (tcl-true?
        (let ((false-values
@@ -450,16 +395,17 @@
 
      (call-by-key
        (lambda (key resultvar . args)
-         (cond ((and in-callback (pair? callback-mutex)) #f)
-               (else (set! in-callback (cons #t in-callback))
-                     (let* ((cmd (get-property key commands-invoked-by-tk))
-                            (result (apply cmd args))
-                            (str (string-trim-left
-                                   (scheme-arglist->tk-argstring
-                                     (list result)))))
-                       (set-var! resultvar str)
-                       (set! in-callback (cdr in-callback))
-                       result)))))
+         (cond 
+		   ((and in-callback (pair? callback-mutex)) #f)
+		   (else (set! in-callback (cons #t in-callback))
+				 (let* ((cmd (get-property key commands-invoked-by-tk))
+						(result (apply cmd args))
+                        (str (string-trim-left
+							   (scheme-arglist->tk-argstring
+								 (list result)))))
+				   (set-var! resultvar str)
+                   (set! in-callback (cdr in-callback))
+				   result)))))
 
      (gen-symbol
        (let ((counter 0))
@@ -623,9 +569,9 @@
                     " \""
                     (string-translate x
                                       '((#\\ . "\\\\") (#\" . "\\\"")
-                                                       (#\[ . "\\u005b") (#\] . "\\]")
-                                                       (#\$ . "\\u0024")
-                                                       (#\{ . "\\{") (#\} . "\\}")))
+                                        (#\[ . "\\u005b") (#\] . "\\]")
+                                        (#\$ . "\\u0024")
+                                        (#\{ . "\\{") (#\} . "\\}")))
                     "\"")))
                (else (string-append " " (form->string x))))))
 
@@ -910,5 +856,5 @@
     (set! ttk/available-themes ttk-available-themes)
     (set! ttk/set-theme (make-wish-func "ttk::style theme use"))
     (set! ttk/style (make-wish-func "ttk::style"))
-    (set! ttk-map-widgets map-ttk-widgets))
+    (set! ttk-map-widgets map-ttk-widgets) )
   )
