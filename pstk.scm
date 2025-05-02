@@ -107,7 +107,7 @@
 ;; 2006-12-02 Added Scheme 48 port, portable GENSYM, R5RS fixes.
 ;; 2006-12-02 Added PLT/Windows port.
 
-(module pstk-SIS-Gui
+(module pstk
   (tk
    tk-throw-exceptions
    tk-dispatch-event
