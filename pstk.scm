@@ -168,7 +168,7 @@
      (use posix
 	  (only data-structures string-intersperse)
 	  (only srfi-13 string-concatenate)))
-    (chicken-5
+    (else
      (import chicken.base chicken.keyword chicken.file.posix chicken.process
 	     chicken.string scheme srfi-1 srfi-13)))
 
